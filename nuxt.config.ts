@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     ['nuxt-purgecss', { enabled: true }],
     ['@nuxtjs/robots', { UserAgent: '*' }],
     '@nuxtjs/device',
+    'nuxt-swiper',
   ],
   vite: {
     css: {
