@@ -12,6 +12,29 @@
     font-family: $mainFonts;
     color: $colorMain;
     font-size: $fontSize *1.2;
+  }
+
+  .message-error {
+    font-size: 12px;
+    color: $colorError;
+    padding-left: $gutter;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
    
+
+     &--mainForm {
+      position: absolute;
+      bottom: 10px;
+    } 
+  
+    &::before {
+      content: url('/picture/svg/error-warning-line.svg');
+      width: 15px;
+      height: 15px;
+      margin-right: $gutter * 0.5;
+      filter: invert(39%) sepia(23%) saturate(6303%) hue-rotate(336deg)
+        brightness(102%) contrast(113%);
+    }
   }
 

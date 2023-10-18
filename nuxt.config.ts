@@ -4,6 +4,8 @@ export default defineNuxtConfig({
   css: ['@/assets/styles/main.scss'],
   runtimeConfig: {
     public: {
+      email: 'mrgirardflorent@gmail.com ',
+      tel: '+33638520096',
       server: 'http://localhost:4000',
     },
   },
@@ -13,6 +15,7 @@ export default defineNuxtConfig({
     ['@nuxtjs/robots', { UserAgent: '*' }],
     '@nuxtjs/device',
     'nuxt-swiper',
+    '@formkit/nuxt',
   ],
   vite: {
     css: {
