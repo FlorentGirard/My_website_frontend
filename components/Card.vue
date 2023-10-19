@@ -2,12 +2,13 @@
     <div
       class="card"
       :class="{ 'card--active': isActive }"
+      ref="cardRef"
       @click="toggleContent"
     >
       <div class="card__header">
         <div class="card__title">{{ props.title }}</div>
-        <div v-if="!isActive" class="card__icon">+</div>
-        <div v-else class="card__icon">-</div>
+        <img v-if="!isActive" src="/picture/svg/more.svg" />
+        <img v-else src="/picture/svg/less.svg" />
       </div>
       <div class="card__content" :style="{ height: contentHeight + 'px' }">
         <p class="card__paragraph">{{ props.paragraph }}</p>
@@ -23,15 +24,16 @@
   
   const isActive = ref(false)
   const contentHeight = ref(0)
+  const cardRef = ref()
   
   const toggleContent = () => {
     isActive.value = !isActive.value
-    if (isActive.value) {
-      contentHeight.value = 390
-    } else {
-      contentHeight.value = 0
-    }
+ 
   }
+
+  useDetectOutsideClick(cardRef, () => {
+  isActive.value = false
+})
   </script>
   
   <style scoped lang="scss">
@@ -39,9 +41,10 @@
     flex-direction: column;
     justify-content: center;
     height: 100px;
-    padding: 0 $gutter * 2.7 0 $gutter * 2;
+    padding: 0 $gutter * 2 0 $gutter * 2;
     border-bottom: 1px solid $colorMain;
     transition: height 0.5s ease;
+    background-color: $colorLight;
   }
   
   .card--active {
@@ -62,14 +65,7 @@
     text-transform: uppercase;
   }
   
-  .card__icon {
-    font-size: 32px;
-    transition: transform 0.2s ease;
-  
-    &--active {
-      transform: rotate(45deg);
-    }
-  }
+
   
   .card__content {
     overflow: hidden;
@@ -80,5 +76,11 @@
     font-size: 16px;
     line-height: 1.5;
   }
+
+  @media screen and (min-width: 1024px) {
+  .card--active {
+    height: 504px;
+  }
+}
   </style>
   

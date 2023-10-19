@@ -1,3 +1,5 @@
+
+import { setBlockTracking } from 'vue';
 <template>
     <div>
       <span v-if="messageUser">{{ messageUser }}</span>
@@ -95,8 +97,17 @@
               label="Envoyer"
               :classes="{
                 wrapper: 'mainForm__wrapperButton',
+                input: ' mainForm__button'
               }"
-            />
+            > 
+            <span>Envoyer</span>
+            <img
+              v-if="!isMobile"
+              src="/picture/svg/send.svg"
+              alt=""
+              width="18"
+              height="18" />
+              </FormKit>
           </div>
         </div>
       </FormKit>
@@ -108,6 +119,7 @@
   
   const messageUser = ref('')
   const config = useRuntimeConfig()
+  const { isMobile } = useDevice()
   
   const sendEmail = async (value: any) => {
     try {
@@ -195,10 +207,22 @@
   }
 
   .mainForm__wrapperButton {
-    height: 99px;
+    height: 100px;
     font-size: $fontSize *1.8;
     width: calc(100%  + 2px);
-    border-bottom: none;
+border-color: red;
+border-bottom: 0;
+    display: block;
+  }
+
+  .mainForm__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 $gutter * 4;
+    text-transform: uppercase;
   }
 
   .form__blockRight {

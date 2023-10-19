@@ -11,7 +11,13 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    ['nuxt-purgecss', { enabled: true }],
+    [
+      'nuxt-purgecss',
+      {
+        enabled: true,
+        safelist: [/swiper/, 'button', /nuxt-devtools/],
+      },
+    ],
     ['@nuxtjs/robots', { UserAgent: '*' }],
     '@nuxtjs/device',
     'nuxt-swiper',

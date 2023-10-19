@@ -1,39 +1,41 @@
 <template>
-    <Swiper
-      :modules="[SwiperEffectCreative, SwiperPagination]"
-      :slides-per-view="1"
-      :loop="false"
-      :effect="'creative'"
-      :pagination="false"
-      :creative-effect="{
-        prev: {
-          shadow: false,
-          translate: ['-20%', 0, -1],
-        },
-        next: {
-          translate: ['100%', 0, 0],
-        },
-      }"
-      class="carousel"
-    >
-      <SwiperSlide
-        v-for="(slide, index) in carouselData.projects"
-        :key="index"
-        class="swiper__slide"
-      >
-        <img
-          :src="`/picture/${slide.picture}`"
-          :alt="slide.alt"
-          class="carousel__picture"
-        />
-        <div class="carousel__footer">
-          <h2 class="carousel__titleProject" :href="slide.link">
-            {{ slide.title }}
-          </h2>
-          <img src="/picture/svg/more.svg" />
-        </div>
-      </SwiperSlide>
-    </Swiper>
+    
+        <Swiper
+          :modules="[SwiperEffectCreative, SwiperPagination]"
+          :slides-per-view="1"
+          :loop="false"
+          :effect="'creative'"
+          :pagination="false"
+          :creative-effect="{
+            prev: {
+              shadow: false,
+              translate: ['-20%', 0, -1],
+            },
+            next: {
+              translate: ['100%', 0, 0],
+            },
+          }"
+          class="carousel"
+        >
+          <SwiperSlide
+            v-for="(slide, index) in carouselData.projects"
+            :key="index"
+            class="swiper__slide"
+          >
+            <img
+              :src="`/picture/${slide.picture}`"
+              :alt="slide.alt"
+              class="carousel__picture"
+            />
+            <div class="carousel__footer">
+              <h2 class="carousel__titleProject" :href="slide.link">
+                {{ slide.title }}
+              </h2>
+              <img src="/picture/svg/more.svg" />
+            </div>
+          </SwiperSlide>
+        </Swiper>
+   
   </template>
   
   <script lang="ts" setup>
@@ -70,7 +72,7 @@
     position: relative;
   }
   .carousel__picture {
-    width: calc(100% - 1px);
+    width: 100%;
     height: 100%;
   }
   
