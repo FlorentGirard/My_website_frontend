@@ -19,6 +19,27 @@ export default defineNuxtConfig({
       },
     ],
     ['@nuxtjs/robots', { UserAgent: '*' }],
+    [
+      '@nuxtjs/i18n',
+
+      {
+        defaultLocale: 'fr',
+        detectBrowserLanguage: false,
+        lagacy: false,
+        locales: [
+          {
+            code: 'en',
+            name: 'En',
+            iso: 'en-US',
+          },
+          {
+            code: 'fr',
+            name: 'Fr',
+            iso: 'fr-FR',
+          },
+        ],
+      },
+    ],
     '@nuxtjs/device',
     'nuxt-swiper',
     '@formkit/nuxt',

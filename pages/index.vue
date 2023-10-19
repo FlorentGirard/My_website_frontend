@@ -1,3 +1,9 @@
+<i18n>
+  {
+    "en": {"presentation" : "I design and develop your web projects, website and application", "developer": "Full stack developer"},
+    "fr": { "presentation" : "Je conçois et développe vos projets web, site internet et application", "developer": "Developpeur full stack"},
+  }
+</i18n>
 <template>
   <div class="home">
     <Banner is-title :text-array="homeData.textArray" />
@@ -5,8 +11,7 @@
       <section class="home__sectionLeft">
         <div class="home__firstView">
           <p class="home__presentation">
-            *Je conçois et développe vos projets web, site internet et
-            application.
+            *{{ t('presentation') }}.
           </p>
         </div>
 
@@ -49,19 +54,20 @@
   </div>
 </template>
 <script lang="ts" setup>
+const { t } = useI18n()
 const config = useRuntimeConfig()
 const { isDesktop, isMobile } = useDevice()
 
 const homeData = reactive({
   textArray: [
-    'Développeur Full Stack JavaScript*',
-    'Développeur Full Stack JavaScript*',
-    'Développeur Full Stack JavaScript*',
+    'developer',
+    'developer',
+    'developer',
   ],
   text: [
-    'Parlez-moi de votre projet, je serais ravi de vous apporter toutes les solutions de développement pour votre projet web et application.',
-    'Parlez-moi de votre projet, je serais ravi de vous apporter toutes les solutions de développement pour votre projet web et application.',
-    'Parlez-moi de votre projet, je serais ravi de vous apporter toutes les solutions de développement pour votre projet web et application.',
+    'text',
+    'text',
+    'text',
   ],
 })
 </script>

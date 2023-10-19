@@ -1,3 +1,10 @@
+<i18n>
+  {
+    "en": { "developer": "Full stack developer", "text": "Tell me about your project, I would be delighted to provide you with all the development solutions for your web and application project." },
+    "fr": { "developer": "Developpeur full stack", "text": "Parlez-moi de votre projet, je serais ravi de vous apporter toutes les solutions de développement pour votre projet web et application." },
+  }
+</i18n>
+
 <template>
     <div class="banner">
       <template v-if="props.isTitle">
@@ -11,7 +18,7 @@
             :key="index"
             class="banner__item"
           >
-            {{ item }}
+          {{ t(item) }}*
           </span>
         </h1>
       </template>
@@ -26,7 +33,7 @@
             :key="index"
             class="banner__item"
           >
-            {{ item }}
+          {{ t(item) }}
           </span>
         </p>
       </template>
@@ -34,6 +41,7 @@
   </template>
   
   <script lang="ts" setup>
+  const { t } = useI18n()
   interface IProps {
     textArray: string[]
     isTitle?: boolean

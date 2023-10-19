@@ -1,6 +1,13 @@
+<i18n>
+  {
+    "en":{"detail": "Details and contact", "live": "Place of activity", "stack": "My stack", "management": "Project management" },
+    "fr":{"detail": "Détails et contact", "live": "Lieu d’activité", "stack": "Ma stack", "management": "Gestion de projets"}
+  }
+</i18n>
+
 <template>
     <section class="contact">
-      <h2 class="contact__title">Détails et contact</h2>
+      <h2 class="contact__title">{{ t('detail') }}</h2>
       <ul>
         <li class="contact__list">
           <a :href="`mailto:${config.public.email}`" class="theFooter__email">
@@ -19,14 +26,14 @@
           >
         </li> -->
       </ul>
-      <h2 class="contact__title">Lieu d’activité</h2>
+      <h2 class="contact__title">{{ t('live') }}</h2>
       <p class="contact__text">Métropole Lilloise et alentours (France).</p>
-      <h2 class="contact__title">Ma stack</h2>
+      <h2 class="contact__title">{{ t('stack') }}</h2>
       <p class="contact__text contact__text--uppercase">
         VUEJS/NUXTJS - NESTJS - ReactJs
       </p>
       <div class="contact__flex">
-        <h2 class="contact__title">Gestion de projets/ DevOps</h2>
+        <h2 class="contact__title">{{ t('management')}}/ DevOps</h2>
         <p class="contact__text contact__text--uppercase">
           Github - Agile(SCRUM) - GitFlow - BEM - TDD
         </p>
@@ -42,6 +49,7 @@
   
   <script setup lang="ts">
   const config = useRuntimeConfig()
+  const {t} = useI18n()
   </script>
   
   <style lang="scss" scoped>
